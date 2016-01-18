@@ -1,0 +1,23 @@
+{
+  "name": "oma-cli",
+  "description": "Process command-line arguments and initiate commands.",
+  "main": "index",
+  "version": "1.0.0",
+  "dependencies": {
+    "yargs": "^3.18.0"
+  },
+  "keywords": [
+    "oma",
+    "open mainframe architecture",
+    "command-line parsing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-mainframe-architecture/oma-cli.git"
+  },
+  "author": "open.mainframe@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-mainframe-architecture/oma-cli/issues"
+  }
+}
