@@ -14,7 +14,7 @@ module.exports = (version, commandSpecs, alternativeCommandLine) => {
   // keep track whether a command has been parsed
   let commandKey = null;
   // specify commands to parse
-  for (let key in commandSpecs) {
+  for (const key in commandSpecs) {
     mainArgs.command(key, commandSpecs[key].short, function() {
       // when the callback is called, this command has been parsed
       const commandSpec = commandSpecs[commandKey = this];
@@ -24,7 +24,7 @@ module.exports = (version, commandSpecs, alternativeCommandLine) => {
       const most = typeof commandSpec.most === 'number' ? commandSpec.most : -1;
       const examples = commandSpec.examples || [];
       const usage = commandSpec.usage, long = commandSpec.long;
-      for (let alias in commandSpec.option) {
+      for (const alias in commandSpec.option) {
         const optionSpec = commandSpec.option[alias];
         const letter = optionSpec.letter, arity = optionSpec.arity;
         if (yopts[letter]) {
@@ -44,7 +44,7 @@ module.exports = (version, commandSpecs, alternativeCommandLine) => {
       if (least > 0 || most >= least) {
         mainArgs.demand(least + 1, most >= least ? most + 1 : void 0);
       }
-      for (let example of examples) {
+      for (const example of examples) {
         mainArgs.example(`${main} ${commandKey} ${example}`, '');
       }
       if (long) {
@@ -67,7 +67,7 @@ module.exports = (version, commandSpecs, alternativeCommandLine) => {
   }
   // extract command options from parse results
   const commandSpec = commandSpecs[commandKey], opts = { '': argv._.slice(1) };
-  for (let key in argv) {
+  for (const key in argv) {
     const optionSpec = commandSpec.option[key];
     if (optionSpec) {
       if (optionSpec.arity === 0) {
